@@ -3,8 +3,8 @@ import fs from "fs"
 import path from "path"
 
 export const connect = dbName => {
-  mongoose.connect(`mongodb://127.0.0.1/${dbName}`, { useMongoClient: true })
   mongoose.Promise = global.Promise
+  return mongoose.connect(`mongodb://127.0.0.1/${dbName}`, { useMongoClient: true })
 }
 
 export const loadDefaultModels = () => {
