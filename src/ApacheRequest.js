@@ -26,9 +26,8 @@ export const initMetric = () => {
         actions: false,
         issues: true,
         meta: true,
-
         // Custom metrics to put in BIG
-        main_probes: ["test-probe"]
+        main_probes: ["Apache Request", "Histogram"]
       }
     }
   }
@@ -51,9 +50,16 @@ export const initMetric = () => {
       }
     })
 
+    // Regis histogram
+    const histogram = Probe.histogram({
+      name: "Histogram",
+      measurement: "mean"
+    })
+
     setInterval(function() {
-      // Count
       totalReq++
+      const latency = Math.round(Math.random() * 100)
+      histogram.update(latency)
     }, 1000)
   }
 
