@@ -10,8 +10,7 @@ export const countReq = () => {
   const CustomView = mongoose.model("CustomView")
   const lastMinute = Math.floor(new Date().getTime() / 1000) - 60
   const wait = CustomView.count({ timestamp: { $gt: lastMinute } }).exec()
-
-  return wait.catch(err => _(err)).finally(() => mongoose.disconnect())
+  return wait.catch(err => _(err))
 }
 
 export default countReq

@@ -1,6 +1,5 @@
 import pmx from "pmx"
 import countReq from "../mongodb/countReq"
-
 const Probe = pmx.probe()
 
 const options = {
