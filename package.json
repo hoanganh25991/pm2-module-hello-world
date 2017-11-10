@@ -2,7 +2,6 @@
   "name": "pm2-module-hello-world",
   "version": "0.0.1",
   "description": "Appache Request",
-  "main": "index.js",
   "author": "Anh Le Hoang",
   "license": "MIT",
   "dependencies": {
@@ -32,7 +31,7 @@
     {
       "merge_logs": true,
       "max_memory_restart": "200M",
-      "script": "app.js"
+      "script": "index.js"
     }
   ]
 }
