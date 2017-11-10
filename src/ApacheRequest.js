@@ -59,6 +59,7 @@ export const initMetric = () => {
 
     setInterval(function() {
       totalReq++
+      if (totalReq > 1000) totalReq = 0
       latency = Math.round(Math.random() * 100)
       histogram.update(latency)
     }, 1000)
