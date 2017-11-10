@@ -1,14 +1,27 @@
 {
   "name": "pm2-module-hello-world",
-  "version": "1.0.0",
-  "description": "PM2 Sample Module",
+  "version": "0.0.1",
+  "description": "Appache Request",
   "main": "app.js",
+  "author": "Anh Le Hoang",
+  "license": "MIT",
   "dependencies": {
     "pmx" : "beta"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/keymetrics/pmx.git"
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.4.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --no-semi --print-width 120",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged"
   },
   "config" : {
     "conf_var_1" : true,
@@ -18,7 +31,5 @@
     "merge_logs"         : true,
     "max_memory_restart" : "200M",
     "script"             : "app.js"
-  }],
-  "author": "Keymetrics Inc.",
-  "license": "MIT"
+  }]
 }
