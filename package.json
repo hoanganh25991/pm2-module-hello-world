@@ -21,7 +21,8 @@
     ]
   },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "babel src --out-dir=dist"
   },
   "config": {
     "conf_var_1": true,

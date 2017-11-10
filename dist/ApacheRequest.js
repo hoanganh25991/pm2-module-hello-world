@@ -1,7 +1,20 @@
-import pmx from "pmx"
+"use strict"
 
-export const initMetric = () => {
-  const Probe = pmx.probe()
+Object.defineProperty(exports, "__esModule", {
+  value: true
+})
+exports.initMetric = undefined
+
+var _pmx = require("pmx")
+
+var _pmx2 = _interopRequireDefault(_pmx)
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj }
+}
+
+const initMetric = (exports.initMetric = () => {
+  const Probe = _pmx2.default.probe()
 
   const options = {
     // Options related to the display style on Keymetrics
@@ -57,7 +70,7 @@ export const initMetric = () => {
     }, 1000)
   }
 
-  pmx.initModule(options, callback)
-}
+  _pmx2.default.initModule(options, callback)
+})
 
-export default initMetric
+exports.default = initMetric
