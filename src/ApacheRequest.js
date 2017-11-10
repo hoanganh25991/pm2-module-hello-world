@@ -34,6 +34,7 @@ export const initMetric = () => {
 
   const callback = (err, conf) => {
     let totalReq = null
+    let latency = null
     // Regis metrics
     Probe.metric({
       name: "Apache Request",
@@ -58,7 +59,7 @@ export const initMetric = () => {
 
     setInterval(function() {
       totalReq++
-      const latency = Math.round(Math.random() * 100)
+      latency = Math.round(Math.random() * 100)
       histogram.update(latency)
     }, 1000)
   }
