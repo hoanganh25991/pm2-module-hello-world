@@ -1,2 +1,1 @@
-const { initMetric } = require("./dist/ApacheRequest")
-initMetric()
+require("./dist/pmx/ApacheRequest")
