@@ -2,11 +2,12 @@
   "name": "pm2-module-hello-world",
   "version": "0.0.1",
   "description": "Appache Request",
-  "main": "app.js",
+  "main": "index.js",
   "author": "Anh Le Hoang",
   "license": "MIT",
   "dependencies": {
-    "pmx" : "beta"
+    "babel-preset-node7": "^1.5.0",
+    "pmx": "beta"
   },
   "devDependencies": {
     "husky": "^0.14.3",
@@ -23,13 +24,15 @@
   "scripts": {
     "precommit": "lint-staged"
   },
-  "config" : {
-    "conf_var_1" : true,
-    "conf_var_2" : "myvalue"
+  "config": {
+    "conf_var_1": true,
+    "conf_var_2": "myvalue"
   },
-  "apps" : [{
-    "merge_logs"         : true,
-    "max_memory_restart" : "200M",
-    "script"             : "app.js"
-  }]
+  "apps": [
+    {
+      "merge_logs": true,
+      "max_memory_restart": "200M",
+      "script": "app.js"
+    }
+  ]
 }
