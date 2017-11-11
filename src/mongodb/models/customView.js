@@ -14,4 +14,4 @@ const CustomViewSchema = new Schema({
   }
 })
 
-mongoose.model("CustomView", CustomViewSchema)
+mongoose.model("CustomView", CustomViewSchema, "customViews")
