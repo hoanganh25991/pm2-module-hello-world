@@ -11,8 +11,8 @@ const options = {
     theme: ["#141A1F", "#222222", "#3ff", "#3ff"],
     // Section to show / hide
     el: {
-      probes: true,
-      actions: true
+      probes: false,
+      actions: false
     },
     // Main block to show / hide
     block: {
@@ -27,22 +27,23 @@ const options = {
   }
 }
 
-let totalReq = null
+const getUnitName = (unit, value) => {
+  const showValueAs = +value === 1 ? "" : value
+  return `/${showValueAs}${unit}`
+}
 
 pmx.initModule(options, (err, conf) => {
-  // Regis metrics
-  Probe.metric({
+  const { interval_unit: unit, interval_value: value } = conf
+  // Regis meter
+
+  const metric = Probe.meter({
     name: "Request",
-    value: () => totalReq
+    unit: getUnitName(unit, value),
+    timeframe: 1
   })
 
-  const { interval_unit, interval_value } = conf
-
   setInterval(() => {
-    const countWait = countReq(interval_unit, interval_value)
-    countWait.then(count => {
-      const value = interval_value === 1 ? "" : interval_value
-      totalReq = `${count}/${value}${interval_unit}`
-    })
+    const countWait = countReq(unit, value)
+    countWait.then(count => metric.mark(count))
   }, 1000)
 })

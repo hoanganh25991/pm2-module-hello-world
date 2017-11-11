@@ -28,8 +28,8 @@
     ]
   },
   "config": {
-    "interval_value": 60,
-    "interval_unit": "s"
+    "interval_value": 1,
+    "interval_unit": "m"
   },
   "apps": [
     {

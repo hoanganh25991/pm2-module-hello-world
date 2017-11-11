@@ -8,6 +8,7 @@ loadDefaultModels()
 
 const getLastXSecs = (unit, value) => {
   let minusVal = null
+  value = +value
   switch (unit) {
     case "m": {
       minusVal = value * 60
