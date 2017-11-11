@@ -1,7 +1,7 @@
 {
-  "name": "pm2-module-hello-world",
+  "name": "ApacheMonitor",
   "version": "0.0.1",
-  "description": "Appache Request",
+  "description": "Appache Monitor",
   "author": "Anh Le Hoang",
   "license": "MIT",
   "dependencies": {
@@ -28,14 +28,17 @@
     ]
   },
   "config": {
-    "conf_var_1": true,
-    "conf_var_2": "myvalue"
+    "interval_value": 60,
+    "interval_unit": "s"
   },
   "apps": [
     {
       "merge_logs": true,
       "max_memory_restart": "200M",
-      "script": "index.js"
+      "script": "index.js",
+      "env"    : {
+        "PM2_EXTRA_DISPLAY" : "true"
+      }
     }
   ]
 }
